@@ -10,7 +10,6 @@
 import wx
 import wx.xrc
 
-
 ###########################################################################
 ## Class TuneChangeGui
 ###########################################################################
@@ -25,7 +24,7 @@ class TuneChangeGui(wx.Frame):
 
         Mainlayout = wx.BoxSizer(wx.VERTICAL)
 
-        self.Breif = wx.StaticText(self, wx.ID_ANY, u"数字前0表示低音  (e.g. 05 ->低音5)\n重复数字表示高音  (e.g. 55->高音5)\n输入:请用空格或者逗号分隔",
+        self.Breif = wx.StaticText(self, wx.ID_ANY, u"数字前0表示低音  (e.g. #05 ->低半音乐5)\n重复数字表示高音  (e.g. #33->高半音3)\n输入:请用空格或者逗号分隔 所有半音用#表示",
                                    wx.DefaultPosition, wx.Size(-1, 70), 0)
         self.Breif.Wrap(-1)
         self.Breif.SetFont(wx.Font(14, 70, 90, 90, False, wx.EmptyString))
@@ -53,6 +52,7 @@ class TuneChangeGui(wx.Frame):
 
         self.Before = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(350, -1),
                                   wx.TE_AUTO_URL|wx.TE_LEFT | wx.TE_MULTILINE)
+        self.Before.SetFont(wx.Font(14, 70, 90, 90, False, wx.EmptyString))
         ChangeArea.Add(self.Before, 0, wx.ALL | wx.EXPAND, 5)
 
         ButtonArea = wx.BoxSizer(wx.VERTICAL)
@@ -73,6 +73,7 @@ class TuneChangeGui(wx.Frame):
 
         self.After = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(350, -1),
                                  wx.TE_AUTO_URL | wx.TE_LEFT | wx.TE_MULTILINE | wx.TE_READONLY)
+        self.After.SetFont(wx.Font(14, 70, 90, 90, False, wx.EmptyString))
         ChangeArea.Add(self.After, 0, wx.ALL | wx.EXPAND, 5)
 
         Mainlayout.Add(ChangeArea, 1, wx.EXPAND, 5)
@@ -103,5 +104,4 @@ class TuneChangeGui(wx.Frame):
 
     def ClearAll(self, event):
         event.Skip()
-
 
