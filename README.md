@@ -5,4 +5,4 @@
 
 [GUI.py](https://github.com/dccif/TuneChange/blob/master/GUI.py)
 
-setup.py为打包文件
+[setup.py](https://github.com/dccif/TuneChange/blob/master/setup.py)为打包文件
