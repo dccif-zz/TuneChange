@@ -1,5 +1,4 @@
 import wx
-
 import GUI
 import re
 
@@ -37,15 +36,19 @@ class MainWindow(GUI.TuneChangeGui):
         NumList = list(map(lambda x: KeyMap[x], MidList))
         ChangeList = list(map(lambda x: x + Scale[0], NumList))
         ChangeList = list(map(lambda x: NumKey[x], ChangeList))
+        
         global ChangeText
         ChangeText = ",".join(ChangeList)
         self.After.SetValue(ChangeText)
-        # if re.match(r'\[0-7]{1-2}.+?'):
-        #     self.After.SetValue(InputText)
-        #     print(InputText)
-        # else:
-        #     self.After.SetValue("输入格式错误")
-        #     #print(InputText)
+
+        # 输入的正则判断部分TODO
+        # 如果用户输入不满足格式要求，进行提示
+        ''' if re.match(r'\[0-7]{1-2}.+?'):
+            self.After.SetValue(InputText)
+            print(InputText)
+        else:
+            self.After.SetValue("输入格式错误")
+            #print(InputText) '''
 
     def BeforeChoice(self, event):
         Scale[1] = self.Choice1.GetSelection()
