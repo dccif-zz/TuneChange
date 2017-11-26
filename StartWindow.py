@@ -11,6 +11,7 @@ KeyMap = {"01": -11, "#01": -10, "02": -9, "#02": -8, "03": -7, "04": -6, "#04":
 NumKey = {y: x for x, y in KeyMap.items()}
 
 InputText = ""
+MidList = ""
 ChangeText = ""
 
 
@@ -28,15 +29,17 @@ class MainWindow(GUI.TuneChangeGui):
         self.TuneChange()
 
     def TuneChange(self):
-        MidList = re.sub(",|，|\s", " ", InputText)
-        MidList = re.split(",|，|\s", MidList)
-
+        global MidList
+        MidList = re.sub(",|，|\s+", " ", InputText)
+        MidList = re.split(",|，|\s+", MidList)
         Scale[0] = Scale[1] - Scale[2]
+        # Use Regex To Check Input
+        # if Check Pass start Change
+        if(self.CheckInput(MidList)):
+            NumList = list(map(lambda x: KeyMap[x], MidList))
+            ChangeList = list(map(lambda x: x + Scale[0], NumList))
+            ChangeList = list(map(lambda x: NumKey[x], ChangeList))
 
-        NumList = list(map(lambda x: KeyMap[x], MidList))
-        ChangeList = list(map(lambda x: x + Scale[0], NumList))
-        ChangeList = list(map(lambda x: NumKey[x], ChangeList))
-        
         global ChangeText
         ChangeText = ",".join(ChangeList)
         self.After.SetValue(ChangeText)
@@ -49,6 +52,19 @@ class MainWindow(GUI.TuneChangeGui):
         else:
             self.After.SetValue("输入格式错误")
             #print(InputText) '''
+
+    def CheckInput(self, inlist):
+        inlength = MidList.__len__();
+        #rmatch1=re.compile(r'(#|0|#0)?([1-7](?!\d)\b|\b([1-7])\3\b)')
+        rmatch=re.compile(r'(#|0|#0)?([1-7](?!\d)|([1-7])\3\b)')
+        if (inlist[-1] == ''):
+            inlength -= 1
+        CheckList = list(filter(rmatch.match,inlist))
+        if(CheckList.__len__() == inlength):
+            return True
+        self.After.SetValue("很抱歉，输入格式错误")
+        self.Before.Clear()
+        return False
 
     def BeforeChoice(self, event):
         Scale[1] = self.Choice1.GetSelection()
