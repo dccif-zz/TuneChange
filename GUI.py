@@ -24,7 +24,7 @@ class TuneChangeGui(wx.Frame):
 
         Mainlayout = wx.BoxSizer(wx.VERTICAL)
 
-        self.Breif = wx.StaticText(self, wx.ID_ANY, u"数字前0表示低音  (e.g. #05 ->低半音乐5)\n重复数字表示高音  (e.g. #33->高半音3)\n输入:请用空格或者逗号分隔 所有半音用#表示",
+        self.Breif = wx.StaticText(self, wx.ID_ANY, u"数字前0表示低音  (e.g. #05 ->低半音5)\n重复数字表示高音  (e.g. #33->高半音3)\n输入:请用空格或者逗号分隔 所有半音用#表示",
                                    wx.DefaultPosition, wx.Size(-1, 70), 0)
         self.Breif.Wrap(-1)
         self.Breif.SetFont(wx.Font(14, 70, 90, 90, False, wx.EmptyString))
