@@ -47,6 +47,6 @@ Temporary Items
 .apdisk
 
 # Customize
-__pycache__\
-build\
+__pycache__/
+build/
 *.spec
