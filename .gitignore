@@ -52,3 +52,4 @@ Temporary Items
 __pycache__/
 build/
 *.spec
+version.txt
