@@ -1,1 +1,0 @@
-pyinstaller -n TuneChange -w -F -i music.ico StartWindow.py --version-file version.txt

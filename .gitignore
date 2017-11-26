@@ -51,4 +51,7 @@ Temporary Items
 .vscode/
 __pycache__/
 build/
+dist/
 *.spec
+version.txt
+package.bat
