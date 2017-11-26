@@ -21,6 +21,7 @@ class TuneChangeGui(wx.Frame):
 
         self.SetSizeHints(wx.DefaultSize, wx.DefaultSize)
         self.SetBackgroundColour(wx.Colour(242, 242, 242))
+        self.SetIcon(wx.Icon('music.ico',wx.BITMAP_TYPE_ICO))
 
         Mainlayout = wx.BoxSizer(wx.VERTICAL)
 
