@@ -45,7 +45,8 @@ class MainWindow(GUI.TuneChangeGui):
 
     def CheckInput(self, inlist):
         inlength = MidList.__len__();
-        rmatch = re.compile(r'(?:#|0|#0)?(?:[1-7](?!\d)|([1-7])\1\b)')
+        # rmatch = re.compile(r'(?:#|0|#0)?(?:[1-7](?!\d)|([1-7])\1\b)')
+        rmatch = re.compile(r'#?(?:0?[1-7](?!\d)|\b([1-7])\1\b)')
         if (inlist[-1] == ''):
             inlength -= 1
         CheckList = list(filter(rmatch.match,inlist))
