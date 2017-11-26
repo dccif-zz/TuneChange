@@ -47,6 +47,8 @@ Temporary Items
 .apdisk
 
 # Customize
+.idea/
+.vscode/
 __pycache__/
 build/
 *.spec
