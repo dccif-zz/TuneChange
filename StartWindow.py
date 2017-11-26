@@ -14,7 +14,6 @@ InputText = ""
 MidList = ""
 ChangeText = ""
 
-
 class MainWindow(GUI.TuneChangeGui):
     def init_main_window(self):
         return
@@ -33,8 +32,8 @@ class MainWindow(GUI.TuneChangeGui):
         MidList = re.sub(",|，|\s+", " ", InputText)
         MidList = re.split(",|，|\s+", MidList)
         Scale[0] = Scale[1] - Scale[2]
-        # Use Regex To Check Input
-        # if Check Pass start Change
+# Use Regex To Check Input
+# if Check Pass start Change
         if(self.CheckInput(MidList)):
             NumList = list(map(lambda x: KeyMap[x], MidList))
             ChangeList = list(map(lambda x: x + Scale[0], NumList))
@@ -44,18 +43,8 @@ class MainWindow(GUI.TuneChangeGui):
         ChangeText = ",".join(ChangeList)
         self.After.SetValue(ChangeText)
 
-        # 输入的正则判断部分TODO
-        # 如果用户输入不满足格式要求，进行提示
-        ''' if re.match(r'\[0-7]{1-2}.+?'):
-            self.After.SetValue(InputText)
-            print(InputText)
-        else:
-            self.After.SetValue("输入格式错误")
-            #print(InputText) '''
-
     def CheckInput(self, inlist):
         inlength = MidList.__len__();
-        #rmatch1=re.compile(r'(#|0|#0)?([1-7](?!\d)\b|\b([1-7])\3\b)')
         rmatch=re.compile(r'(#|0|#0)?([1-7](?!\d)|([1-7])\3\b)')
         if (inlist[-1] == ''):
             inlength -= 1
